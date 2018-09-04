@@ -5,24 +5,32 @@
   "main": "bin/cli.js",
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^23.3.1",
     "@types/node": "^10.9.4",
     "husky": "^0.14.3",
+    "jest": "^23.5.0",
     "lint-staged": "^7.2.2",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.2",
+    "rimraf": "^2.6.2",
+    "sloc": "^0.2.0",
+    "ts-jest": "^23.1.4",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
   },
   "scripts": {
-    "start:dev": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build",
+    "start": "node bin/cli.js",
+    "test": "jest",
+    "prebuild": "rimraf lib",
     "build": "tsc",
     "dev": "nodemon src/index.ts",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "fix": "tslint -c tslint.json --fix src/**/*.ts",
+    "fix": "tslint -c tslint.json --fix src/**/*.ts __tests__/**/*.ts",
     "precommit": "lint-staged",
-    "format": "prettier --write src/**/*.ts"
+    "format": "prettier --write src/**/*.ts __tests__/**/*.ts",
+    "sloc": "sloc src __tests__ --details --format cli-table --keys total,source,comment && sloc src __tests__"
   },
   "lint-staged": {
     "*.js": [
