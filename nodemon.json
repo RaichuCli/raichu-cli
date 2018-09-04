@@ -1,0 +1,9 @@
+{
+  "verbose": true,
+  "ignore": ["lib/*"],
+  "restartable": "rs",
+  "execMap": {
+    "js": "node",
+    "ts": "ts-node"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "raichu-cli",
+  "version": "0.0.1",
+  "description": "build tool",
+  "main": "bin/cli.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.2",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "start:dev": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "nodemon src/index.ts",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "fix": "tslint -c tslint.json --fix src/**/*.ts",
+    "precommit": "lint-staged",
+    "format": "prettier --write src/**/*.ts"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint -c tslint.json --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htoooth/raichu-cli.git"
+  },
+  "keywords": [
+    "webpack",
+    "cli",
+    "build",
+    "tool"
+  ],
+  "author": "htoooth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/htoooth/raichu-cli/issues"
+  },
+  "homepage": "https://github.com/htoooth/raichu-cli#readme"
+}
