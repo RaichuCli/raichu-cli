@@ -1,4 +1,7 @@
 {
+  "env": {
+    "TS_NODE_FILES": true
+  },
   "verbose": true,
   "ignore": ["lib/*"],
   "restartable": "rs",
